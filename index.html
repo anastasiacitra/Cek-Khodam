@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Khodam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cek Khodam</h2>
+        <form id="khodamForm" action="#" method="POST">
+            <input type="text" id="nama" placeholder="Masukan Nama Kamu" name="nama">
+            <button type="submit">Cek</button>
+            <div id="result"></div>
+        </form>
+        <p style="font-size: 0.8rem; color: #666;">Credit: AC.Negara</p>
+    </div>
+
+    <script>
+        const khodamNames = [
+            { name: "Sigit Rendang", image: "https://tse3.mm.bing.net/th?id=OIP.1q51D31C5Tpjw2r2hVlsXgHaEK&pid=Api&P=0&h=180" },
+            { name: "Singa", image: "https://i.pinimg.com/originals/08/d5/21/08d521ece636dc2448bf7e142c85cc72.jpg" },
+            { name: "Shrek", image: "https://i.pinimg.com/736x/41/2a/d5/412ad5a892c8ee2a31aff4a37d353eee.jpg" },
+            { name: "Rangers Merah", image: "https://i.ytimg.com/vi/S2R-TXC00tE/hq2.jpg?sqp=-oaymwEoCOADEOgC8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYfyATKBYwDw==&rs=AOn4CLB2V7QTGoPJQozGcCDB22lQM-Bi9g" },
+            { name: "Rangers Pink", image: "https://i.pinimg.com/originals/5e/e5/0e/5ee50e4d4ca24a1f20c25acceb476894.png" },
+            { name: "Jalan Becek", image: "https://1.bp.blogspot.com/-xUodRiXpu_g/XaDQjRRp09I/AAAAAAAAUdc/cUKaWrTjM0YG5shWdcaBLWoVuE5xUqgAgCLcBGAsYHQ/s1600/11-berita-1-5.jpg" },
+            { name: "Atta Halilintar", image: "https://cdn.idntimes.com/content-images/post/20190204/img-20190203-235941-16c3a8a0cf0a39303830e8e107fd60d6.JPG" },
+            { name: "Anya", image: "https://media.suara.com/suara-partners/poptren/thumbs/1200x675/2022/10/07/1-kekeyi-cosplay-jadi-anya-forger-bikin-netizen-sedih-dok-instagram.jpg" },
+            { name: "Peri Bulan ", image: "https://tse2.mm.bing.net/th?id=OIP.CbC1BbsVX1f4C7uIHj75MwHaJQ&pid=Api&P=0&h=180" },
+            { name: "Badut Mekdi", image: "https://www.thepatriots.asia/wp-content/uploads/NkSh86Vxb2sMrbprwMr6PH.jpg" },
+            { name: "Haji Torik", image: "https://i.ytimg.com/vi/vICZ8xdrjkg/maxresdefault.jpg" },
+            { name: "Mamah Dedeh", image: "https://stickerly.pstatic.net/sticker_pack/13279e882d3a25af/58OA9K/2/904a2f9d-f781-4f58-a22d-bfbdd4463ca2-007.png" },
+            { name: "Cihuahua", image: "https://cdn.acidcow.com/pics/20171229/animals_14.jpg" },
+            { name: "Dora", image: "https://1.bp.blogspot.com/-mGSn9UA-q_8/YR09BXrhTUI/AAAAAAAAMX0/ZYlh13yXLb0SqEby4BKFmoHTD0EFF__iQCLcBGAsYHQ/s707/23.jpg" },
+            { name: "Teletabis", image: "https://i.pinimg.com/originals/f0/f2/44/f0f244ed54ad2ff098bbc694c59c1618.jpg" },
+            { name: "Lap Pel", image: "https://s3.bukalapak.com/img/3016861166/large/lap_pel_handuk_micro_fiber_magic_mop_Nagata.jpg" },
+            { name: "Gorengan", image: "https://1.bp.blogspot.com/-gpgfZa3FNdo/XwgcktajSbI/AAAAAAAAEAM/fmonRKYmTCg6Oox6ohPxOTaW1QOmUZ5yACLcBGAsYHQ/s2048/IMG_20200708_104725.jpg" },
+            { name: "Nasi Padang", image: "https://i.pinimg.com/originals/c5/92/ba/c592baf9acbfa538bebef0c203ce21a8.jpg" },
+            { name: "Jaekyung", image: "https://i.pinimg.com/originals/02/20/ee/0220eef1ca9d633ae3358fe370344a5a.jpg" },
+            { name: "Psikopat", image: "https://i.pinimg.com/736x/a2/a1/16/a2a1160cbd00651d39dfa61ec6ca52a0.jpg" },
+
+        ];
+
+        document.getElementById('khodamForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('nama').value.trim();
+            if (nama === '') {
+                alert('Nama tidak boleh kosong!');
+                return;
+            }
+
+            const randomKhodam = khodamNames[Math.floor(Math.random() * khodamNames.length)];
+            document.getElementById('result').innerHTML = `
+                <img src="${randomKhodam.image}" alt="${randomKhodam.name}" class="khodam-image">
+                <p class="khodam-name">${randomKhodam.name}</p>
+            `;
+            
+            document.getElementById('nama').value = '';
+        });
+    </script>
+</body>
+</html>
